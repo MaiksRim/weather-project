@@ -28,49 +28,52 @@
     </header>
     <main class="main">
         <div class="container">
-
+            
             <div class="second-page-content">
+                <template class="week-template">
                 <div class="week-forecast">
                     <div class="week-forecast__item">
-                        <div class="week-forecast__heading">Tonight</div>
-                        <div class="week-forecast__date">JUL 30</div>
-                        <img class='mid-content__photo' src="img/sun.svg" alt="weather-picture">
-                        <div class="week-forecast__temp">25C</div>
-                        <div class="week-forecast__info">Clear, warm</div>
+                        <div class="week-forecast__heading">t</div>
+                        <div class="week-forecast__date"></div>
+                        <img class='mid-content__photo' alt="weather-picture">
+                        <div class="week-forecast__temp"></div>
+                        <div class="week-forecast__info"></div>
                     </div>
                     <div class="week-forecast__item">
-                        <div class="week-forecast__heading">Tonight</div>
-                        <div class="week-forecast__date">JUL 30</div>
-                        <img class='mid-content__photo' src="img/sun.svg" alt="weather-picture">
-                        <div class="week-forecast__temp">25C</div>
-                        <div class="week-forecast__info">Clear, warm</div>
+                        <div class="week-forecast__heading"></div>
+                        <div class="week-forecast__date"></div>
+                        <img class='mid-content__photo' alt="weather-picture">
+                        <div class="week-forecast__temp"></div>
+                        <div class="week-forecast__info"></div>
                     </div>
                     <div class="week-forecast__item">
-                        <div class="week-forecast__heading">Tonight</div>
-                        <div class="week-forecast__date">JUL 30</div>
-                        <img class='mid-content__photo' src="img/sun.svg" alt="weather-picture">
-                        <div class="week-forecast__temp">25C</div>
-                        <div class="week-forecast__info">Clear, warm</div>
+                        <div class="week-forecast__heading"></div>
+                        <div class="week-forecast__date"></div>
+                        <img class='mid-content__photo' alt="weather-picture">
+                        <div class="week-forecast__temp"></div>
+                        <div class="week-forecast__info"></div>
                     </div>
                     <div class="week-forecast__item">
-                        <div class="week-forecast__heading">Tonight</div>
-                        <div class="week-forecast__date">JUL 30</div>
-                        <img class='mid-content__photo' src="img/sun.svg" alt="weather-picture">
-                        <div class="week-forecast__temp">25C</div>
-                        <div class="week-forecast__info">Clear, warm</div>
+                        <div class="week-forecast__heading"></div>
+                        <div class="week-forecast__date"></div>
+                        <img class='mid-content__photo' alt="weather-picture">
+                        <div class="week-forecast__temp"></div>
+                        <div class="week-forecast__info"></div>
                     </div>
                     <div class="week-forecast__item">
-                        <div class="week-forecast__heading">Tonight</div>
-                        <div class="week-forecast__date">JUL 30</div>
-                        <img class='mid-content__photo' src="img/sun.svg" alt="weather-picture">
-                        <div class="week-forecast__temp">25C</div>
-                        <div class="week-forecast__info">Clear, warm</div>
+                        <div class="week-forecast__heading"></div>
+                        <div class="week-forecast__date"></div>
+                        <img class='mid-content__photo' alt="weather-picture">
+                        <div class="week-forecast__temp"></div>
+                        <div class="week-forecast__info"></div>
                     </div>
                 </div>
+            </template>
             </div>
 
             <div class="upper-content">
             <h2 class="upper-content__heading">current weather</h2>
+            <template class="upper-content__template">
             <div class="upper-content__current-weather">
                 <div class="upper-content__picture">
                     <img class='upper-content__photo' alt="weather-picture">
@@ -86,10 +89,12 @@
                     <div class="upper-content__duration">Duration:</div>
                 </div>
             </div>
+        </template>
         </div>
         <div class="mid-content">
             <h2 class="mid-content__heading">hourly</h2>
-            <div class="mid-content__wrapper">
+            <template class="mid-content__template">
+                <div class="mid-content__wrapper">
                 <div class="mid-content__item">
                     <div class="mid-content__time">today</div>
                     <div class="mid-content__photo"></div>
@@ -147,6 +152,7 @@
                     <div class="mid-content__wind"></div>
                 </div>
             </div>
+            </template>
         </div>
     </div>
     </main>

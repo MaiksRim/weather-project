@@ -45,7 +45,7 @@ header {
     text-align: center;
     width: 300px;
     position: relative; }
-    .header .head__search__text {
+  .header .head__search__text {
       width: 100%;
       height: 40px;
       background-color: #425c85;
@@ -54,6 +54,9 @@ header {
       text-align: center;
       color: white;
       font-size: 17px; }
+  .header .head__search__text::placeholder {
+      color: #fff;
+  }
   .header .head__item {
     width: 33%;
     display: -webkit-box;
@@ -144,6 +147,9 @@ header {
     text-transform: uppercase;
     text-align: center;
     font-size: 22px; }
+  .new-color {
+    background-color: #1DA0C7;
+  }
   .mid-content__wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -185,13 +191,14 @@ header {
     text-align: left; }
 
 .week-forecast {
-  display: none;
+  display: flex;
   padding-top: 20px;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 25px 0 25px 0; }
   .week-forecast__item {
+    transition: 0.4s;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
