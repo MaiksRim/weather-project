@@ -44,7 +44,8 @@ navWeek.addEventListener('click', function () {
     class Weather {
         constructor() {
             this.week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-            this.year = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];this.getCity();
+            this.year = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            this.getCity();
             this.getCurCoords();
             this.pageClock();
             this.hourlyWeatherChange();
@@ -70,19 +71,21 @@ navWeek.addEventListener('click', function () {
                 this.request(coords);
             });
         }
-        async request(coords) {
-            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords[0]}&lon=${coords[1]}&units={metric}&appid=525fc01a5e5733b7b550f58ae0ea169f`;
+        async request(coords, type) {
+            let link = 'https://api.openweathermap.org/data/2.5/';
+            let linkInfo = '&units={metric}&appid=525fc01a5e5733b7b550f58ae0ea169f';
+            let url = `${link}onecall?lat=${coords[0]}&lon=${coords[1]}${linkInfo}`;
             let response = await fetch(url);
             let json = await response.json();
             this.json = json;
-            let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${coords[0]}&lon=${coords[1]}&units={metric}&appid=525fc01a5e5733b7b550f58ae0ea169f`;
+            let url2 = `${link}forecast?lat=${coords[0]}&lon=${coords[1]}${linkInfo}`;
             let response2 = await fetch(url2);
             let json2 = await response2.json();
             this.hourly = json2;
             this.getCurWeather();
         }
       async cityRequest(city) {
-            let url = `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=4a2f498e77044dddb2a093cee1585397`
+            let url = `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=4a2f498e77044dddb2a093cee1585397`;
             let response = await fetch(url);
             let json = await response.json();
             this.city = json;
@@ -98,7 +101,8 @@ navWeek.addEventListener('click', function () {
             let hour = a.getHours() + '.00';
             curColumn[0].innerText = hour;
             let photoCode = this.json.hourly[i].weather[0].icon;
-            curColumn[1].setAttribute('src', 'http://openweathermap.org/img/w/' + photoCode + '.png');
+            let link = `http://openweathermap.org/img/w/${photoCode}.png`;
+            curColumn[1].setAttribute('src', link);
             curColumn[2].innerText = curWeather.json.hourly[i].weather[0].main;
             curColumn[3].innerText = Math.round(curWeather.json.hourly[i].temp-273.15) + '°C';
             curColumn[4].innerText = Math.round(curWeather.json.hourly[i].feels_like-273.15) + '°C';
@@ -116,7 +120,8 @@ navWeek.addEventListener('click', function () {
             realFeel.innerText = 'Real feel: ' + weatherTemp[1] + '°C';
             weatherName.innerText = weatherTemp[2];
             let photoCode = this.json.current.weather[0].icon;
-            mainPhoto.setAttribute('src', 'http://openweathermap.org/img/w/' + photoCode + '.png');
+            let link = `http://openweathermap.org/img/w/${photoCode}.png`;
+            mainPhoto.setAttribute('src', link);
             sunrise.innerText = 'Sunrise: ' + formatTime[0];
             sunset.innerText = 'Sunset: ' + formatTime[1];
             duration.innerText = 'Duration: ' + formatTime[2];
@@ -136,9 +141,10 @@ navWeek.addEventListener('click', function () {
                 let curColumn = Array.from(columns[i].children);
                 let photoCode = this.json.daily[i].weather[0].icon;
                 let a = new Date(this.json.daily[i].dt * 1000);
+                let link = `http://openweathermap.org/img/w/${photoCode}.png`;
                 curColumn[0].textContent=this.week[a.getDay()];
                 curColumn[1].textContent=this.year[a.getMonth()] + ' ' + a.getDate();
-                curColumn[2].setAttribute('src', 'http://openweathermap.org/img/w/' + photoCode + '.png');
+                curColumn[2].setAttribute('src', link);
                 curColumn[3].textContent = Math.round(this.json.daily[i].temp.day -273.15) + '°C';
                 curColumn[4].textContent = this.json.daily[i].weather[0].main;
             }
@@ -159,7 +165,8 @@ navWeek.addEventListener('click', function () {
                     let hour = a.getHours() + '.00';
                     curColumn[0].innerText = hour;
                     let photoCode = curWeather.hourly.list[curHour].weather[0].icon;
-                    curColumn[1].setAttribute('src', 'http://openweathermap.org/img/w/' + photoCode + '.png');
+                    let link = `http://openweathermap.org/img/w/${photoCode}.png`;
+                    curColumn[1].setAttribute('src', link);
                     curColumn[2].innerText = curWeather.hourly.list[curHour].weather[0].main;
                     curColumn[3].innerText = Math.round(curWeather.hourly.list[curHour].main.temp-273.15) + '°C';
                     curColumn[4].innerText = Math.round(curWeather.hourly.list[curHour].main.feels_like-273.15) + '°C';
